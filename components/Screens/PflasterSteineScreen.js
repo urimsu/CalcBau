@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     View,
@@ -11,15 +11,28 @@ import {
 } from 'react-native';
 import DataSet from '../../DataBank/DataSet.js'
 import SteinArt from '../SteinArt.js';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const PflasterSteinScreen = () => {
-    //console.log(DataSet);
+    const navigation=useNavigation();
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
                 data={DataSet}
                 renderItem={({ item }) =>
-                    <SteinArt name={item.Name} preis={item.Preis} onPress={() => console.log("test")} image={item.Bild} />}
+                    <SteinArt
+                        name={item.Name}
+                        preis={item.Preis}
+                        onPress={() => navigation.navigate("Stein Information",
+                            {
+                                SteinName:item.Name,
+                                SteinPreis:item.Preis,
+                                SteinBild:item.Bild,
+                            }
+                        )} 
+                        image={item.Bild} />}
                 keyExtractor={item => item.Id}
             />
         </SafeAreaView>
@@ -28,9 +41,12 @@ const PflasterSteinScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      marginTop: StatusBar.currentHeight || 0,
-      backgroundColor: 'darkseagreen',
+        flex: 1,
+        marginTop: StatusBar.currentHeight || 0,
+        backgroundColor: 'darkseagreen',
+    },
+    einkaufswagen:{
+        marginBottom:100,
     },
 });
 export default PflasterSteinScreen;

@@ -32,13 +32,15 @@ const GartenpflegeArbeit = ({ name, onPress,bild }) => (
       fontSize: 32,
     },
     tinyLogo: {
-      width: 50,
-      height: 50,
+      width: 70,
+      height: 70,
       marginRight:25,
+      borderRadius:20,
     },
     nameText:{
       flex:1,
       flexWrap:'wrap',
+      fontSize:20
     },
     preisText:{
       

@@ -1,11 +1,13 @@
 const Arbeit=[
     {
       Id:1,
-      Art:"Baumschnitt"
+      Art:"Baumschnitt",
+      Bild:require("../Bilder/Gartenpflege/Baumschnitt.jpeg")
     },
     {
       Id:2,
-      Art:"Heckenschnitt"
+      Art:"Heckenschnitt",
+      Bild:require("../Bilder/Gartenpflege/Heckenschnitt.jpeg")
     }
   ]
 

@@ -9,7 +9,7 @@ import {
     TouchableOpacity,
     Image
 } from 'react-native';
-import GartenpflegeArbeit from '../GartenpflegeArt.js';
+import GartenpflegeArbeit from '../GartenpflegeArbeit.js';
 import GartenpflegeArt from '../../DataBank/GartenpflegeArt.js'
 
 const GartenpflegeScreen = () => {
@@ -19,7 +19,7 @@ const GartenpflegeScreen = () => {
             <FlatList
                 data={GartenpflegeArt}
                 renderItem={({ item }) =>
-                    <GartenpflegeArbeit name={item.Art} onPress={() => console.log(item.Art)} bild={item.bild}/>}
+                    <GartenpflegeArbeit name={item.Art} onPress={() => console.log(item.Art)} bild={item.Bild}/>}
                 keyExtractor={item => item.Id}
             />
         </SafeAreaView>

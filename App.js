@@ -7,6 +7,8 @@ import CalculatorScreen from './components/Screens/CalculatorScreen';
 import ReceiptScreen from './components/Screens/ReceiptScreen';
 import PflasterSteineScreen from './components/Screens/PflasterSteineScreen';
 import GartenpflegeScreen from './components/Screens/GartenpflegeScreen';
+import SteinInfoScreen from './components/Screens/SteinInfoScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +31,8 @@ export default function App() {
         <Stack.Screen name="Rechnung" component={ReceiptScreen} options={{title: "Receipt",}}/>
         <Stack.Screen name="Pflaster Steine" component={PflasterSteineScreen} options={{title: "PflasterSteine",}}/>
         <Stack.Screen name="Gartenpflege" component={GartenpflegeScreen} options={{title: "Gartenpflege",}}/>
+        <Stack.Screen name="Stein Information" component={SteinInfoScreen} options={{title: "SteinInformation",}}/>
+
 
 
       </Stack.Navigator>

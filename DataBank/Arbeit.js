@@ -2,12 +2,12 @@ const Arbeit=[
     {
       Id:1,
       Art:"Gartenbau",
-      Bild:require("./../Bilder/GartenBauBild.webp"),
+      Bild:require("./../Bilder/ArbeitArtBild/GartenBauBild.webp"),
     },
     {
       Id:2,
       Art:"Gartenpflege",
-      Bild:require("./../Bilder/GartenpflegeBild.jpeg"),
+      Bild:require("./../Bilder/ArbeitArtBild/GartenpflegeBild.jpeg"),
     }
   ]
 

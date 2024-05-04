@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-import SteinArt from '../SteinArt.js';
 import { useNavigation } from '@react-navigation/native';
 import Arbeit from  '../../DataBank/Arbeit.js'
 
@@ -25,9 +24,7 @@ const ShowArbeit = ({ name, onPress ,bild}) => (
 
 
 const CalculatorScreen = () => {
-  //console.log(DataSet);
   const navigation=useNavigation();
-  console.log(Arbeit);
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -80,6 +77,7 @@ const styles = StyleSheet.create({
   nameText:{
     flex:1,
     flexWrap:'wrap',
+    fontSize:20
   },
   preisText:{
     
