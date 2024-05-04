@@ -9,34 +9,45 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-import DataSet from '../../DataBank/DataSet.js'
+import SteinArt from '../SteinArt.js';
 import { useNavigation } from '@react-navigation/native';
+import Arbeit from  '../../DataBank/Arbeit.js'
 
 
-const Item = ({ name,preis, onPress, image }) => (
-  <TouchableOpacity style={styles.item}
-  onPress={onPress} >
-    <Image style={styles.tinyLogo} source={image} />
+
+const ShowArbeit = ({ name, onPress ,bild}) => (
+  <TouchableOpacity style={styles.item} onPress={onPress} >
+    <Image style={styles.tinyLogo} source={bild}/>
     <Text style={styles.nameText}>{name}</Text>
-    <Text style={styles.preisText}> {preis}€/qm</Text>
   </TouchableOpacity >
 );
+
+
 
 const CalculatorScreen = () => {
   //console.log(DataSet);
   const navigation=useNavigation();
-
+  console.log(Arbeit);
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={DataSet}
-        renderItem={({ item }) =>
-          <Item name={item.Name} preis={item.Preis} onPress={()=>navigation.navigate("Home")} image={item.Bild} />}
-        keyExtractor={item => item.id}
+        data={Arbeit}
+        renderItem=
+        {({ item }) => <ShowArbeit name={item.Art} 
+        onPress={()=>item.Art=="Gartenbau"? navigation.navigate("Pflaster Steine"):navigation.navigate("Gartenpflege")}
+        bild={item.Bild} />}
+        keyExtractor={item => item.Id}
       />
     </SafeAreaView>
   );
 };
+
+{/* <FlatList
+data={DataSet}
+renderItem={({ item }) =>
+  <Item name={item.Name} preis={item.Preis} onPress={()=>navigation.navigate("Home")} image={item.Bild} />}
+keyExtractor={item => item.Id}
+/> */}
 
 const styles = StyleSheet.create({
   container: {
@@ -60,9 +71,11 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
   tinyLogo: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
     marginRight:25,
+    borderRadius: 20,
+
   },
   nameText:{
     flex:1,
