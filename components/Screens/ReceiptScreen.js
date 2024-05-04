@@ -16,7 +16,7 @@ function ReceiptScreen() {
     Container:{
       flex:1,
       backgroundColor:'darkseagreen',
-      justifyContent:'flex-start'
+      justifyContent:'center'
     },
     Text:{
       fontWeight:'bold',

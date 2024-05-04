@@ -22,9 +22,9 @@ export default function App() {
             fontWeight: 'bold',
           },
         }}>
-        <Stack.Screen name="Home" component={HomeScreen}/>
-        <Stack.Screen name="Calculator" component={CalculatorScreen} />
-        <Stack.Screen name="Rechnung" component={ReceiptScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{title: "My Home",}}/>
+        <Stack.Screen name="Calculator" component={CalculatorScreen} options={{title: "Calculator",}}/>
+        <Stack.Screen name="Rechnung" component={ReceiptScreen} options={{title: "Receipt",}}/>
       </Stack.Navigator>
     <HomeButton/>
     </NavigationContainer>     
