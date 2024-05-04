@@ -1,4 +1,4 @@
-const Arbeit=[
+const ArbeitDaten=[
     {
       Id:1,
       Art:"Gartenbau",
@@ -11,4 +11,4 @@ const Arbeit=[
     }
   ]
 
-  export default Arbeit;
+  export default ArbeitDaten;

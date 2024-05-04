@@ -10,14 +10,14 @@ import {
     Image
 } from 'react-native';
 import GartenpflegeArbeit from '../GartenpflegeArbeit.js';
-import GartenpflegeArt from '../../DataBank/GartenpflegeArt.js'
+import GartenpflegeArtDaten from '../../DataBank/GartenpflegeArtDaten.js'
 
 const GartenpflegeScreen = () => {
     //console.log(DataSet);
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={GartenpflegeArt}
+                data={GartenpflegeArtDaten}
                 renderItem={({ item }) =>
                     <GartenpflegeArbeit name={item.Art} onPress={() => console.log(item.Art)} bild={item.Bild}/>}
                 keyExtractor={item => item.Id}

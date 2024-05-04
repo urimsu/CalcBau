@@ -1,4 +1,4 @@
-const Arbeit=[
+const GartenpflegeArtDaten=[
     {
       Id:1,
       Art:"Baumschnitt",
@@ -11,4 +11,4 @@ const Arbeit=[
     }
   ]
 
-  export default Arbeit;
+  export default GartenpflegeArtDaten;

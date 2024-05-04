@@ -9,7 +9,7 @@ import {
     TouchableOpacity,
     Image
 } from 'react-native';
-import DataSet from '../../DataBank/DataSet.js'
+import SteinDaten from '../../DataBank/SteinDaten.js'
 import SteinArt from '../SteinArt.js';
 import { useNavigation } from '@react-navigation/native';
 
@@ -20,7 +20,7 @@ const PflasterSteinScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={DataSet}
+                data={SteinDaten}
                 renderItem={({ item }) =>
                     <SteinArt
                         name={item.Name}

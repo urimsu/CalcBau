@@ -1,4 +1,4 @@
-const DataSet=[
+const SteinDaten=[
 {
     Id:1,
     Name:"Rechteckpflaster grau",
@@ -27,4 +27,4 @@ const DataSet=[
 
 }
 ]
-export default DataSet;
+export default SteinDaten;

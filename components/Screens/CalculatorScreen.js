@@ -10,7 +10,7 @@ import {
   Image
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Arbeit from  '../../DataBank/Arbeit.js'
+import ArbeitDaten from  '../../DataBank/ArbeitDaten.js'
 
 
 
@@ -28,7 +28,7 @@ const CalculatorScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={Arbeit}
+        data={ArbeitDaten}
         renderItem=
         {({ item }) => <ShowArbeit name={item.Art} 
         onPress={()=>item.Art=="Gartenbau"? navigation.navigate("Pflaster Steine"):navigation.navigate("Gartenpflege")}
