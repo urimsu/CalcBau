@@ -68,7 +68,8 @@ function ReceiptScreen() {
           renderItem={({ item }) =>
               <TouchableOpacity 
               onPress={() => {
-                // Cart.splice(item.index)
+                console.log(item.index);
+                Cart.splice(item.index,1);
                 // console.log(item.index)
                 //console.log(item.name)
                 console.log(Cart);
