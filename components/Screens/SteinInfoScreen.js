@@ -7,25 +7,32 @@ import {
   Image,
   FlatList,
   Button,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 import Cart from '../../DataBank/Temp/Cart';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-ico-material-design';
 
 
 const SteinInformationDisplay = ({ name, preis, SteinBild }) => (
-  <View style={styles.item}>
+  <View style={styles.AllObj}>
+    <View style={styles.item}>
       <Image style={styles.bild} source={SteinBild} />
-    <View style={styles.Schrift}>
-      <Text style={styles.nameText}>{name}</Text>
-      <Text style={styles.preisText}> {preis}€/qm</Text>
+      <View style={styles.Schrift}>
+        <Text style={styles.nameText}>{name}</Text>
+        <Text style={styles.preisText}> {preis}€/qm</Text>
+      </View>
+    </View >
+    <View style={styles.InfoBox}>
+      <Text>Folgende Infos haben wir über diesen PflasterSteine.</Text>
     </View>
-  </View >
+  </View>
 );
 
-function addCart(name, quantity, preis) {
+function addCart(name, quantity, preis,index) {
   let x = parseInt(quantity) * preis;
-  Cart.push({ name, x, quantity });
+  Cart.push({ name, x, quantity,index});
 }
 
 
@@ -42,24 +49,46 @@ function SteinInfoScreen({ route }) {
         preis={SteinPreis}
         SteinBild={SteinBild}
       />
-      <TextInput
-        style={styles.input}
-        value={Quantity}
-        onChangeText={setQuantity}
-        placeholder="Wie viele?"
-        keyboardType="numeric"
-      />
-      <Button title={"Add"}
-        onPress={() => {
-          addCart(SteinName, Quantity, SteinPreis);
-          setQuantity(null);
-        }} />
-      <Button title="Zeige bisherige Rechnung" onPress={() => navigation.navigate("Rechnung")} />
-      <FlatList
-        data={Cart}
-        renderItem={({ item }) => <Text>{item.name}</Text>}
-      />
+      <View style={styles.InputField}>
+        <TextInput
+          style={styles.input}
+          value={Quantity}
+          onChangeText={setQuantity}
+          placeholder="Wie viele?"
+          keyboardType="numeric"
+        />
 
+        <TouchableOpacity
+          style={styles.Buttons}
+          onPress={() => {
+            addCart(SteinName, Quantity, SteinPreis,Cart.length);
+            setQuantity(null);
+          }}>
+          <Icon name="add-plus-button" height="40" width="40" color='black' />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.Buttons}
+          onPress={() => navigation.navigate("Rechnung")}>
+          <Icon name="receipt" height="40" width="40" color='black' />
+        </TouchableOpacity>
+
+      </View>
+      <View style={styles.RechnungView}>
+        <Text style={styles.Header}>
+          Bisherige Auswahl:
+         </Text>
+        <FlatList
+          style={styles.Rechnung}
+          data={Cart}
+          renderItem={({ item }) => 
+            <View style={{flex:1, flexDirection:'row'}}>
+           <Text style={styles.RechnungTextName}>{item.name}</Text>
+            <Text style={styles.RechnungTextPreis}>{item.x} €</Text>
+          </View>
+        }
+        />
+      </View>
     </View>
   );
 }
@@ -71,40 +100,61 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
 
   },
+  AllObj: {
+    height: 450,
+    justifyContent: 'space-evenly',
+  },
   item: {
-    flex:1/5,
-    flexDirection:'row',
+    flex: 1 / 5,
+    flexDirection: 'row',
     padding: 10,
-    margin:10,
+    paddingBottom: 80,
+    margin: 10,
     backgroundColor: 'white',
     borderRadius: 20,
-    alignItems:'center',
-    borderWidth:1,
-    borderColor:'grey',
-    justifyContent:'space-evenly',
+    borderWidth: 1,
+    borderColor: 'grey',
   },
-  Schrift:{
-    flex:1,
+  InfoBox: {
+    flex: 1,
+    flexDirection: 'row',
+    padding: 10,
+    margin: 10,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'grey',
+    justifyContent: 'space-evenly',
+  },
+  Schrift: {
+    flex: 1,
   },
   bild: {
     height: 100,
     width: 100,
     margin: 10,
     borderRadius: 30,
-    alignSelf: 'left',
+    alignItems: 'flex-start',
   },
   nameText: {
-    padding:10,
-    paddingTop:20,
+    padding: 10,
+    paddingTop: 20,
     fontSize: 20,
-    textAlign:'left',
+    textAlign: 'left',
     fontWeight: 'bold',
 
   },
   preisText: {
-    paddingLeft:10,
+    paddingLeft: 10,
     textAlign: 'left',
     fontSize: 15,
+  },
+  InputField: {
+    flex: 1 / 3,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   input: {
     height: 60,
@@ -114,6 +164,40 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 20
   },
+  Buttons: {
+    padding: 20
+  },
+  RechnungView: {
+    flex: 1 / 5,
+    flexDirection: 'column',
+    padding: 10,
+    paddingBottom: 80,
+    margin: 10,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'grey',
+  },
+  Header:{
+    fontWeight:'bold',
+    padding:10, 
+    textAlign:'center',
+
+  },
+  Rechnung: {
+    paddingBottom:'20%'
+  },
+  RechnungTextName:{
+    flex:1,
+    flexWrap:'wrap',
+    textAlign:'left',
+    padding:2,
+    paddingLeft:7
+  },
+  RechnungTextPreis:{
+    textAlign:'right',
+     paddingRight:7
+  }
 });
 
 

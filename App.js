@@ -34,7 +34,6 @@ export default function App() {
         <Stack.Screen name="Stein Information" component={SteinInfoScreen} options={{title: "SteinInformation",}}/>
 
 
-
       </Stack.Navigator>
     <HomeButton/>
     </NavigationContainer>     
