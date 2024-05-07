@@ -15,9 +15,11 @@ import { useNavigation } from '@react-navigation/native';
 
 const SteinInformationDisplay = ({ name, preis, SteinBild }) => (
   <View style={styles.item}>
-    <Image style={styles.bild} source={SteinBild} />
-    <Text style={styles.nameText}>{name}</Text>
-    <Text style={styles.preisText}> {preis}€/qm</Text>
+      <Image style={styles.bild} source={SteinBild} />
+    <View style={styles.Schrift}>
+      <Text style={styles.nameText}>{name}</Text>
+      <Text style={styles.preisText}> {preis}€/qm</Text>
+    </View>
   </View >
 );
 
@@ -28,10 +30,10 @@ function addCart(name, quantity, preis) {
 
 
 function SteinInfoScreen({ route }) {
-  const navigation=useNavigation();
-
   const { SteinName, SteinPreis, SteinBild } = route.params;
   const [Quantity, setQuantity] = useState('');
+
+  const navigation = useNavigation();
 
   return (
     <View style={styles.Container}>
@@ -52,7 +54,7 @@ function SteinInfoScreen({ route }) {
           addCart(SteinName, Quantity, SteinPreis);
           setQuantity(null);
         }} />
-      <Button title="Zeige bisherige Rechnung" onPress={()=>navigation.navigate("Rechnung")}/>
+      <Button title="Zeige bisherige Rechnung" onPress={() => navigation.navigate("Rechnung")} />
       <FlatList
         data={Cart}
         renderItem={({ item }) => <Text>{item.name}</Text>}
@@ -66,23 +68,43 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFECEC',
     justifyContent: 'flex-start',
-    alignItems: 'center',
+    //alignItems: 'center',
 
   },
-  nameText: {
-    fontWeight: 'bold',
-    fontSize: 30,
-    textAlign: 'center',
+  item: {
+    flex:1/5,
+    flexDirection:'row',
+    padding: 10,
+    margin:10,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    alignItems:'center',
+    borderWidth:1,
+    borderColor:'grey',
+    justifyContent:'space-evenly',
+  },
+  Schrift:{
+    flex:1,
   },
   bild: {
-    height: 200,
-    width: 200,
-    borderRadius: 40,
-    alignSelf: 'center'
+    height: 100,
+    width: 100,
+    margin: 10,
+    borderRadius: 30,
+    alignSelf: 'left',
+  },
+  nameText: {
+    padding:10,
+    paddingTop:20,
+    fontSize: 20,
+    textAlign:'left',
+    fontWeight: 'bold',
+
   },
   preisText: {
-    textAlign: 'center',
-    fontSize: 20,
+    paddingLeft:10,
+    textAlign: 'left',
+    fontSize: 15,
   },
   input: {
     height: 60,

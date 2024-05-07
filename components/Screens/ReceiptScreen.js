@@ -51,8 +51,6 @@ async function sendEmail(to, subject, body, options = {}) {
 
 function ReceiptScreen() {
   const [email,setEmail]=useState(''); // string or array of email addresses
-  const navigation=useNavigation();
-
 console.log(Cart);
   return (
     // <View style={styles.Container}>
