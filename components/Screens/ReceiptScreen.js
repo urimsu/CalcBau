@@ -8,7 +8,9 @@ import {
 function ReceiptScreen() {
     return (
       <View style={styles.Container}>
-        <Text style={styles.Text}>Receipt Screen</Text>
+        <View style={styles.Cart}>
+        <Text style={styles.Text}>Einkaufswagen:</Text>
+        </View>
       </View>
     );
   }
@@ -16,12 +18,20 @@ function ReceiptScreen() {
     Container:{
       flex:1,
       backgroundColor:'darkseagreen',
-      justifyContent:'center'
+      justifyContent:'flex-start'
+    },
+    Cart:{
+      backgroundColor:'white',
+      height:'70%',
+      //margin:15,
+      borderBottomStartRadius:30,
+      borderBottomEndRadius:30
     },
     Text:{
       fontWeight:'bold',
       fontSize:20,
-      textAlign:'center',
+      padding:20,
+      textAlign:'left',
     }
 });
 export default ReceiptScreen
