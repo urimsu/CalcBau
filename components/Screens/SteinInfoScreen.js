@@ -5,7 +5,7 @@ import {
   View,
   StyleSheet,
   Image,
-  Alert,
+  FlatList,
   Button,
   TextInput
 } from 'react-native';
@@ -22,19 +22,9 @@ const SteinInformationDisplay = ({ name, preis, SteinBild }) => (
 
 function addCart(name,quantity,preis){
   let x = parseInt(quantity)*preis;
-  Cart.push(name);
-  Cart.push(x);
+  Cart.push({name,x});
 }
 
-const DisplayCart=()=>{
-  // for(let i =0 ; i< Cart.length ; i++){
-  //   <Text>{Cart[i]}</Text>
-  // }
-  <View>
-  <Text>test</Text>
-  </View>
-  // <Text></Text>
-}
 
 function SteinInfoScreen({ route }) {
   const { SteinName, SteinPreis, SteinBild } = route.params;
@@ -61,8 +51,11 @@ function SteinInfoScreen({ route }) {
         }}/>
       <Button title={"delete"} onPress={()=>Cart.splice(0,Cart.length)}/>
       <Button title={"druck"} onPress={()=>console.log(Cart)}/>
-        <DisplayCart/>
-          {/* <Text>YOUOR CART: {Cart[0]} : {Cart[1]}</Text> */}
+      <Text>YOUOR CART:  </Text>
+      <FlatList 
+      data={Cart}
+      renderItem={({item}) =>  <Text>{item.name}</Text> }
+      />
 
     </View>
   );
