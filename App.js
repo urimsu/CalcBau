@@ -19,9 +19,9 @@ export default function App() {
       screenOptions={{
           title: 'My home',
           headerStyle: {
-            backgroundColor: 'darkolivegreen',
+            backgroundColor: '#D0E4C3',
           },
-          headerTintColor: '#fff',
+          headerTintColor: 'black',
           headerTitleStyle: {
             fontWeight: 'bold',
           },

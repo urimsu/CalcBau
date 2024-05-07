@@ -15,15 +15,15 @@ function HomeButton(){
     <View style={styles.NavContainer}>
         <View style={styles.NavBar}>
             <TouchableOpacity onPress={()=>navigation.navigate("Calculator")}>
-                <Icon name="add-to-queue-button" height="40" width="40" color= 'white' />
+                <Icon name="add-to-queue-button" height="40" width="40" color= 'black' />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=>navigation.navigate("Home")}>
-                <Icon name="home-button" height="40" width="40" color= 'white'/>
+                <Icon name="home-button" height="40" width="40" color= 'black'/>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=>navigation.navigate("Rechnung")} >
-                <Icon name="receipt" height="40" width="40"  color= 'white'/>
+                <Icon name="receipt" height="40" width="40"  color= 'black'/>
             </TouchableOpacity>
         </View>
     </View>
@@ -39,7 +39,7 @@ const styles=StyleSheet.create({
     } ,
     NavBar:{
         flexDirection:'row',
-        backgroundColor:'darkolivegreen',
+        backgroundColor:'#D0E4C3',
         width:'90%',
         justifyContent:'space-around',
         borderRadius:40,

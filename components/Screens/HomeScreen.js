@@ -17,7 +17,7 @@ import {
 const styles=StyleSheet.create({
   Container:{
     flex:1,
-    backgroundColor:'darkseagreen',
+    backgroundColor:'#FFECEC',
     justifyContent:"center"
   },
   Text:{
