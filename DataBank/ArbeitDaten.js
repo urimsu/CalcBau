@@ -8,7 +8,7 @@ const ArbeitDaten=[
       Id:2,
       Art:"Gartenpflege",
       Bild:require("./../Bilder/ArbeitArtBild/GartenpflegeBild.jpeg"),
-    }
+    },
   ]
 
   export default ArbeitDaten;

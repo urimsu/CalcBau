@@ -6,7 +6,7 @@ import {
   TouchableOpacity
 } 
   from 'react-native';
-import Icon from 'react-native-ico-material-design'
+import Icon from 'react-native-ico-material-design';
 import { useNavigation } from '@react-navigation/native';
 
 function HomeButton(){

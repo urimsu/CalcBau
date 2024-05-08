@@ -93,6 +93,8 @@ return (
           }
         />
         <Text style={styles.TextTotal}>Total: {totalerPreis()} €</Text>
+        <Text style={styles.TextTotal}>19% Mhwst.: {totalerPreis()*1.19} €</Text>
+
 
         <TextInput
           style={styles.input}

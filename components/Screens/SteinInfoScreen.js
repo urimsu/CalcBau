@@ -8,7 +8,8 @@ import {
   FlatList,
   Button,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from 'react-native';
 import Cart from '../../DataBank/Temp/Cart';
 import { useNavigation } from '@react-navigation/native';
@@ -16,7 +17,7 @@ import Icon from 'react-native-ico-material-design';
 
 
 const SteinInformationDisplay = ({ name, preis, SteinBild }) => (
-  <View style={styles.AllObj}>
+  <View style={styles.AllObj} >
     <View style={styles.item}>
       <Image style={styles.bild} source={SteinBild} />
       <View style={styles.Schrift}>
@@ -54,7 +55,7 @@ function SteinInfoScreen({ route }) {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.Container}>
+    <KeyboardAvoidingView style={styles.Container} behavior='padding' enabled> 
       <SteinInformationDisplay
         name={SteinName}
         preis={SteinPreis}
@@ -66,7 +67,6 @@ function SteinInfoScreen({ route }) {
           value={Quantity}
           onChangeText={setQuantity}
           placeholder="Wie viele?"
-          keyboardType="numeric"
         />
 
         <TouchableOpacity
@@ -104,7 +104,7 @@ function SteinInfoScreen({ route }) {
         }
         />
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 const styles = StyleSheet.create({
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 
   },
   AllObj: {
-    height: 450,
+    height: '50%',
     justifyContent: 'space-evenly',
   },
   item: {
@@ -146,8 +146,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bild: {
-    height: 100,
-    width: 100,
+    padding:0,
+    height: '225%',//100,
+    width: '25%',//100,
+    // height: 100,
+    // width: 100,
     margin: 10,
     borderRadius: 30,
     alignItems: 'flex-start',
@@ -161,6 +164,7 @@ const styles = StyleSheet.create({
 
   },
   preisText: {
+    padding:0,
     paddingLeft: 10,
     textAlign: 'left',
     fontSize: 15,

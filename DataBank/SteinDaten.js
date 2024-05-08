@@ -25,6 +25,12 @@ const SteinDaten=[
     Preis:11.95,
     Bild:require("../Bilder/SteinBilder/Doppel T-Verbundpflaster grau.jpg")
 
-}
+},
+{
+    Id:5,
+    Name:"Ökopflasterstein Filterpflaster Lusodrain anthrazit ",
+    Preis:19.49,
+    Bild:require("../Bilder/SteinBilder/PflastersteinGrau.jpg"),
+},
 ]
 export default SteinDaten;
