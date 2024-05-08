@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import Cart from '../../DataBank/Temp/Cart';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-ico-material-design';
+import Icon from 'react-native-vector-icons/AntDesign';
+import IconA from 'react-native-vector-icons/FontAwesome5';
 
 
 const SteinInformationDisplay = ({ name, preis, SteinBild }) => (
@@ -75,7 +76,7 @@ function SteinInfoScreen({ route }) {
             addCart(SteinName, Quantity, SteinPreis,newIndex());
             setQuantity(null);
           }}>
-          <Icon name="add-plus-button" height="40" width="40" color='black' />
+          <Icon name="pluscircleo" size={40} color='black' />
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -85,7 +86,7 @@ function SteinInfoScreen({ route }) {
               navigation.navigate("Home");
               navigation.navigate("Rechnung");
               }}>
-          <Icon name="receipt" height="40" width="40" color='black' />
+          <IconA name="receipt" size={40} color='black' />
         </TouchableOpacity>
 
       </View>

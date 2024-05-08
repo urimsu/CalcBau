@@ -6,7 +6,8 @@ import {
   TouchableOpacity
 } 
   from 'react-native';
-import Icon from 'react-native-ico-material-design';
+import Icon from 'react-native-vector-icons/AntDesign';
+import IconA from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 
 function HomeButton(){
@@ -15,18 +16,18 @@ function HomeButton(){
     <View style={styles.NavContainer}>
         <View style={styles.NavBar}>
             <TouchableOpacity onPress={()=>navigation.navigate("Calculator")}>
-                <Icon name="add-to-queue-button" height="40" width="40" color= 'black' />
+                <Icon name="menuunfold" size={40} color= 'black' />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=>navigation.navigate("Home")}>
-                <Icon name="home-button" height="40" width="40" color= 'black'/>
+                <Icon name="home" size={40} color= 'black'/>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=>{
                 navigation.navigate("Home");
                 navigation.navigate("Rechnung");
-                }} >
-                <Icon name="receipt" height="40" width="40"  color= 'black'/>
+            }} >
+                <IconA name="receipt" size={40}  color= 'black'/>
             </TouchableOpacity>
         </View>
     </View>
