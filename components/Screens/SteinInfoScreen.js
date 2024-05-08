@@ -35,6 +35,17 @@ function addCart(name, quantity, preis,index) {
   Cart.push({ name, x, quantity,index});
 }
 
+function newIndex(){
+  let lastIndexAt=0;
+  if(Cart[0]!=null){
+  for (let i=0;i<Cart.length;i++){
+    lastIndexAt=i;
+  }
+  return Cart[lastIndexAt]["index"]+1;
+}else{
+  return 0;
+}
+}
 
 function SteinInfoScreen({ route }) {
   const { SteinName, SteinPreis, SteinBild } = route.params;
@@ -61,7 +72,7 @@ function SteinInfoScreen({ route }) {
         <TouchableOpacity
           style={styles.Buttons}
           onPress={() => {
-            addCart(SteinName, Quantity, SteinPreis,Cart.length);
+            addCart(SteinName, Quantity, SteinPreis,newIndex());
             setQuantity(null);
           }}>
           <Icon name="add-plus-button" height="40" width="40" color='black' />
@@ -69,7 +80,11 @@ function SteinInfoScreen({ route }) {
 
         <TouchableOpacity
           style={styles.Buttons}
-          onPress={() => navigation.navigate("Rechnung")}>
+          onPress={() => 
+            {
+              navigation.navigate("Home");
+              navigation.navigate("Rechnung");
+              }}>
           <Icon name="receipt" height="40" width="40" color='black' />
         </TouchableOpacity>
 

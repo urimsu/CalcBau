@@ -22,7 +22,10 @@ function HomeButton(){
                 <Icon name="home-button" height="40" width="40" color= 'black'/>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>navigation.navigate("Rechnung")} >
+            <TouchableOpacity onPress={()=>{
+                navigation.navigate("Home");
+                navigation.navigate("Rechnung");
+                }} >
                 <Icon name="receipt" height="40" width="40"  color= 'black'/>
             </TouchableOpacity>
         </View>

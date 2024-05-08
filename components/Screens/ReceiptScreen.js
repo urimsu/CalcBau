@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Text,
   View,
@@ -8,10 +8,12 @@ import {
   TextInput,
   Linking,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 import Cart from '../../DataBank/Temp/Cart';
 import qs from 'qs';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 function totalerPreis() {
@@ -49,38 +51,45 @@ async function sendEmail(to, subject, body, options = {}) {
   return Linking.openURL(url);
 }
 
+function deleteItemInCart(index) {
+  for (let Element = 0; Element < Cart.length; Element++) {
+    if (Cart[Element]["index"] == index) {
+      console.log(Cart[Element]["index"]);
+      Cart.splice(Element, 1);
+    }
+  }
+}
 
 function ReceiptScreen() {
 
   const [email, setEmail] = useState(''); // string or array of email addresses
+  const navigation = useNavigation();
 
-  const RemoveFromCart=(name)=>{
-    const newArr=Cart.filter((item)=>item.name!==name);
-    Cart=newArr;
+  function ReloadScreen() {
+    navigation.navigate("Home");
+    navigation.navigate("Rechnung");
   }
-
-  return (
+return (
     <KeyboardAvoidingView style={styles.Container} behavior='padding' enabled>
       <View style={styles.Cart}>
         <Text style={styles.Ueberschrift}>Rechnung:</Text>
         <FlatList
           data={Cart}
           renderItem={({ item }) =>
-              <TouchableOpacity 
+            <TouchableOpacity
               onPress={() => {
-                console.log(item.index);
-                Cart.splice(item.index,1);
-                // console.log(item.index)
-                //console.log(item.name)
-                console.log(Cart);
+                deleteItemInCart(item.index);
+                //Cart.splice(item.index,1);
+                //console.log(Cart[0]["index"]);
+                ReloadScreen();
               }
               }>
-            <View style={styles.ContainerText}>
-              <Text style={styles.TextQuantity}>{item.quantity}qm </Text>
-              <Text style={styles.TextName}>{item.name} </Text>
-              <Text style={styles.TextPrice}> {item.x} €</Text>
-            </View>
-              </TouchableOpacity>
+              <View style={styles.ContainerText}>
+                <Text style={styles.TextQuantity}>{item.quantity}qm </Text>
+                <Text style={styles.TextName}>{item.name} </Text>
+                <Text style={styles.TextPrice}> {item.x} €</Text>
+              </View>
+            </TouchableOpacity>
           }
         />
         <Text style={styles.TextTotal}>Total: {totalerPreis()} €</Text>
@@ -101,7 +110,6 @@ function ReceiptScreen() {
           }
           }
           color={'black'} />
-
         <Button title={"Abschicken"}
           onPress={() => {
             console.log(email);
