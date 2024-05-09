@@ -8,6 +8,10 @@ import ReceiptScreen from './components/Screens/ReceiptScreen';
 import PflasterSteineScreen from './components/Screens/PflasterSteineScreen';
 import GartenpflegeScreen from './components/Screens/GartenpflegeScreen';
 import SteinInfoScreen from './components/Screens/SteinInfoScreen';
+import GartenBauScreen from './components/Screens/GartenBauScreen';
+import KantenSteinScreen from './components/Screens/KantenSteinScreen';
+import ZaunBauScreen from './components/Screens/ZaunBauScreen';
+import ArbeitsstundenScreen from './components/Screens/ArbeitsstundenScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -32,7 +36,10 @@ export default function App() {
         <Stack.Screen name="Pflaster Steine" component={PflasterSteineScreen} options={{title: "PflasterSteine",}}/>
         <Stack.Screen name="Gartenpflege" component={GartenpflegeScreen} options={{title: "Gartenpflege",}}/>
         <Stack.Screen name="Stein Information" component={SteinInfoScreen} options={{title: "SteinInformation",}}/>
-
+        <Stack.Screen name="Gartenbau" component={GartenBauScreen} options={{title: "Gartenbau",}}/>
+        <Stack.Screen name="Kantensteine" component={KantenSteinScreen} options={{title: "Kantensteine",}}/>
+        <Stack.Screen name="Zaunbau" component={ZaunBauScreen} options={{title: "Zaunbau",}}/>
+        <Stack.Screen name="Arbeitsstunden" component={ArbeitsstundenScreen} options={{title: "Arbeitsstunden",}}/>
 
       </Stack.Navigator>
     <HomeButton/>

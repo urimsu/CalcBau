@@ -5,7 +5,7 @@ import {
     StyleSheet,
     StatusBar,
 } from 'react-native';
-import {SteinDaten} from '../../DataBank/GartenBauArtDaten.js'
+import {Arbeitsstunden} from '../../DataBank/GartenBauArtDaten.js'
 import SteinArt from '../SteinArt.js';
 import { useNavigation } from '@react-navigation/native';
 
@@ -16,7 +16,7 @@ const PflasterSteinScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={SteinDaten}
+                data={Arbeitsstunden}
                 renderItem={({ item }) =>
                     <SteinArt
                         name={item.Name}

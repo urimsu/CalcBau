@@ -1,4 +1,4 @@
-const SteinDaten=[
+export const SteinDaten=[
 {
     Id:1,
     Name:"Rechteckpflaster grau",
@@ -33,4 +33,27 @@ const SteinDaten=[
     Bild:require("../Bilder/SteinBilder/PflastersteinGrau.jpg"),
 },
 ]
-export default SteinDaten;
+export const KantensteinDaten=[
+    {
+        Id:1,
+        Name:"Beton Rasenbordstein anthrazit beidseitig gefast 100 x 6 x 25 cm",
+        Preis:5.45,
+        Bild:require("../Bilder/GartenBauArt/KantensteinGrau.jpg"),
+    }
+]
+export const ZaunBauDaten=[
+    {
+        Id:1,
+        Name:"Doppelstabmattenset 8/6/8 inkl Pfosten mit Klemmhalter 103 cm x 10 m, anthrazit",
+        Preis:386.00,
+        Bild:require("../Bilder/GartenBauArt/DoppelstabZaun.jpg"),
+    }
+]
+export  const Arbeitsstunden=[
+    {
+        Id:1,
+        Name:"Arbeitsstunden",
+        Preis:50.00,
+    }
+]
+//export default SteinDaten;

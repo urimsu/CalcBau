@@ -69,7 +69,7 @@ function ReceiptScreen() {
     navigation.navigate("Home");
     navigation.navigate("Rechnung");
   }
-return (
+  return (
     <KeyboardAvoidingView style={styles.Container} behavior='padding' enabled>
       <View style={styles.Cart}>
         <Text style={styles.Ueberschrift}>Rechnung:</Text>
@@ -79,8 +79,6 @@ return (
             <TouchableOpacity
               onPress={() => {
                 deleteItemInCart(item.index);
-                //Cart.splice(item.index,1);
-                //console.log(Cart[0]["index"]);
                 ReloadScreen();
               }
               }>
@@ -92,8 +90,8 @@ return (
             </TouchableOpacity>
           }
         />
-        <Text style={styles.TextTotal}>Total: {totalerPreis()} €</Text>
-        <Text style={styles.TextTotal}>19% Mhwst.: {totalerPreis()*1.19} €</Text>
+        <Text style={styles.TextTotal}>Total: {totalerPreis().toFixed(2)} €</Text>
+        <Text style={styles.TextTotal}>19% Mhwst.: {(totalerPreis() * 1.19).toFixed(2)} €</Text>
 
 
         <TextInput
@@ -108,7 +106,7 @@ return (
         <Button title={"Löschen"}
           onPress={() => {
             Cart.splice(0, Cart.length);
-            console.log(Cart);
+            ReloadScreen();
           }
           }
           color={'black'} />
@@ -117,7 +115,7 @@ return (
             console.log(email);
             sendEmail(
               { email },
-              'Greeting!',
+              'Rechnung!',
               'Guten Tag, anbei ihre Rechnung: ' + totalerPreis() + ' €'
             ).then(() => {
               console.log('Our email successful provided to device mail ');

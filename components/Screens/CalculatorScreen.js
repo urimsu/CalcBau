@@ -31,7 +31,16 @@ const CalculatorScreen = () => {
         data={ArbeitDaten}
         renderItem=
         {({ item }) => <ShowArbeit name={item.Art} 
-        onPress={()=>item.Art=="Gartenbau"? navigation.navigate("Pflaster Steine"):navigation.navigate("Gartenpflege")}
+        onPress={()=>
+          {
+            if(item.Art=="Gartenbau"){
+              navigation.navigate("Gartenbau")
+            }else if(item.Art=="Gartenpflege"){
+              navigation.navigate("Gartenpflege")
+            }else if (item.Art=="Arbeitsstunden"){
+              navigation.navigate("Arbeitsstunden")
+            }
+          }}
         bild={item.Bild} />}
         keyExtractor={item => item.Id}
       />
